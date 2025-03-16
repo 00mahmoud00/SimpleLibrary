@@ -1,5 +1,8 @@
+using SimpleLibrary.Services.Authors;
+
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddSingleton<IAuthorService, AuthorService>();
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 

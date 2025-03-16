@@ -1,0 +1,27 @@
+@model Author
+<h1>Author Details</h1>
+<div>
+    <p>@Model.Name</p>
+    <p>@Model.Email</p>
+</div>
+<h1>Books</h1>
+<table class="table">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var book in Model.Books)
+    {
+        <tr>
+            <td>@book.Name</td>
+            <td>
+                <a class="btn btn-primary">Edit</a>
+                <a class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

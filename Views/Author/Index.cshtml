@@ -1,0 +1,26 @@
+@model List<Author>
+<h1>Authors</h1>
+<a asp-controller="Author" asp-action="Create" class="btn btn-success">Create Author</a>
+<table class="table">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var author in Model)
+    {
+        <tr>
+            <td>@author.Name</td>
+            <td>@author.Email</td>
+            <td>
+                <a href="@Url.Action("Details","Author",new {id = author.Id})" class="btn btn-info">View</a>
+                <a class="btn btn-primary">Edit</a>
+                <a class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

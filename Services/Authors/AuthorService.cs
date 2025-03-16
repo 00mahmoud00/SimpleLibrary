@@ -4,10 +4,19 @@ namespace SimpleLibrary.Services.Authors;
 
 public class AuthorService : IAuthorService
 {
-    private List<Models.Author> _authors = new();
-
-    public void Add(Models.Author author)
+    private List<Author> _authors = new()
     {
+        new Author
+        {
+            Id = 1,
+            Name = "Author 1",
+            Email = "author1@gmail.com"
+        },
+    };
+
+    public void Add(Author author)
+    {
+        author.Id = _authors.Count + 1;
         _authors.Add(author);
     }
 
@@ -18,7 +27,7 @@ public class AuthorService : IAuthorService
         authorToUpdate.Email = author.Email;
     }
 
-    public List<Models.Author> GetAll()
+    public List<Author> GetAll()
     {
         return _authors;
     }
