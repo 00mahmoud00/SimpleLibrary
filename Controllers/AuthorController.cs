@@ -1,3 +1,4 @@
+using System.Text.Json;
 using Microsoft.AspNetCore.Mvc;
 using SimpleLibrary.Models;
 using SimpleLibrary.Services.Authors;
@@ -27,6 +28,7 @@ public class AuthorController : Controller
 
     public IActionResult NewAuthor(Author author)
     {
+        Console.WriteLine(JsonSerializer.Serialize(author));
         _authorService.Add(author);
         return RedirectToAction("Index");
     }

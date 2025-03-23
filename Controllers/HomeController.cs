@@ -15,7 +15,8 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
-        return View();
+        var ip = HttpContext.Connection.RemoteIpAddress;
+        return View(ip);
     }
 
     public IActionResult Privacy()
@@ -23,6 +24,16 @@ public class HomeController : Controller
         return View();
     }
 
+    public IActionResult Blocked()
+    {
+        return View();
+    }
+
+    public IActionResult NotFound()
+    {
+        return View();
+    }
+    
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
     {
