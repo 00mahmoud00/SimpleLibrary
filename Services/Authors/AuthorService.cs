@@ -2,7 +2,7 @@ using SimpleLibrary.Models;
 
 namespace SimpleLibrary.Services.Authors;
 
-public class AuthorService : IAuthorService
+public class AuthorService
 {
     private List<Author> _authors = new()
     {

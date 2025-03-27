@@ -3,16 +3,12 @@ using SimpleLibrary.Services.Authors;
 
 namespace SimpleLibrary.Services.Books;
 
-public class BookService : IBookService
+public class BookService
 {
-    private readonly IAuthorService _authorService;
+    private readonly AuthorService _authorService = new AuthorService();
     
     private List<Book> _books = new();
-
-    public BookService(IAuthorService authorService)
-    {
-        _authorService = authorService;
-    }
+    
 
     public void Add(Book book)
     {

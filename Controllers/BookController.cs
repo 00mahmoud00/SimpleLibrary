@@ -8,13 +8,8 @@ namespace SimpleLibrary.Controllers;
 
 public class BookController : Controller
 {
-    private readonly IBookService _bookService;
-    private readonly IAuthorService _authorService;
-    public BookController(IBookService bookService, IAuthorService authorService)
-    {
-        _bookService = bookService;
-        _authorService = authorService;
-    }
+    private readonly BookService _bookService = new BookService();
+    private readonly AuthorService _authorService = new AuthorService();
 
     public IActionResult Index()
     {

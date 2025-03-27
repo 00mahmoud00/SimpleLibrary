@@ -1,3 +1,4 @@
+using System.Runtime.CompilerServices;
 using System.Text.Json;
 using Microsoft.AspNetCore.Mvc;
 using SimpleLibrary.Models;
@@ -7,16 +8,12 @@ namespace SimpleLibrary.Controllers;
 
 public class AuthorController : Controller
 {
-    private readonly IAuthorService _authorService;
-
-    public AuthorController(IAuthorService authorService)
-    {
-        _authorService = authorService;
-    }
-
+    private AuthorService _authorService = new AuthorService();
 
     public IActionResult Index()
     {
+        var memoryAddres = Unsafe.As<AuthorService, string>(ref _authorService);
+        Console.WriteLine(memoryAddres);
         var authors = _authorService.GetAll();
         return View(authors);
     }
